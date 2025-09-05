@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+        :root {
+            --largura: 300px;
+        }
+
+        body {
+            width: 100%;
+            font-family: "Lilita One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            background-image: url(https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJwYXRoIjoic3VwZXJjZWxsXC9maWxlXC85dVh1alVkTlpqdHJROE5ZdkdQOS5wbmcifQ:supercell:qQq55MNzPqNkEkIzN2ei90OBqhM7EfGo6Ohz8yhm6Uc?width=800);
+            background-repeat: no-repeat;
+            background-position: right top;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        main {
+            max-width: 1120px;
+            min-width: 340px;
+            margin: auto;
+            background-color: aliceblue;
+            box-shadow: 0px 0px 10px 15px black;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .logo {
+            width: 140px;
+            margin: 0 10px;
+        }
+
+        .nav-topo ul {
+            background-color: black;
+            color: white;
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .nav-topo ul li {
+            padding: 5px 15px;
+        }
+
+        .nav-topo ul li a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .nav-topo ul li a:hover {
+            color: rgb(155, 155, 155);
+        }
+
+        .nav {
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            background-image: linear-gradient(white, antiquewhite);
+        }
+
+        .nav-content {
+            max-width: 1120px;
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            /* padding: 10px 20px; */
+        }
+
+        .nav ul {
+            display: flex;
+            margin-left: auto;
+            gap: 16px;
+            list-style: none;
+        }
+
+        .nav ul li a {
+            position: relative;
+            display: inline-block;
+            padding: 25px 30px;
+            color: black;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all .5s;
+        }
+
+        .nav ul li a:hover {
+            color: #444;
+        }
+
+        .nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 0;
+            height: 3px;
+            background-color: #000; /* cor da linha */
+            transition: all .5s;
+            transform: translateX(-50%);
+        }
+
+        .nav ul li a:hover::after {
+            width: 100%;
+        }
+
+
+
+
+
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 20px;
+        }
+
+        .menu-toggle div {
+            width: 30px;
+            height: 4px;
+            background-color: black;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            background-color: #222;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            transition: 0.3s ease;
+            padding-top: 30px;
+            z-index: 1000;
+        }
+        
+        .sidebar a {
+            display: block;
+            padding: 15px 25px;
+            color: #ddd;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar a:not(:first-child):hover {
+            background-color: #444;
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
+        /* Responsivo */
+        @media screen and (max-width: 800px) {
+            .nav ul {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+                margin-left: auto;
+            }
+
+            .logo {
+                margin: 5px 10px;
+                display: block;
+            }
+        }
+
+
+
+
+
+
+        .titulo-noticias {
+            color: white;
+            margin: 20px;
+            padding: 5px 10px;
+            width: 110px;
+            position: relative; 
+            z-index: 1; 
+            font-weight: 200;
+        }
+
+        /* Criando o fundo inclinado */
+        .titulo-noticias::before {
+            content: ''; /* Obrigatório para o pseudo-elemento aparecer */
+            
+            /* Cor e inclinação movidas para cá */
+            background-color: rgb(197, 16, 16);
+            transform: skew(-20deg);
+
+            /* Posicionamento e tamanho */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            /* A chave para colocar o fundo ATRÁS do texto */
+            z-index: -1; 
+        }
+
+        .container-noticias {
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: space-around;
+            margin: 10px;
+        }
+
+        .noticias {
+            display: inline-block;
+            margin: 1px;
+            flex-wrap: 1;
+            flex-grow: 1;
+            position: relative;
+            overflow: hidden;
+            width: var(--largura);
+        }
+
+        .noticias img {
+            display: block;
+            width:100%;
+            -moz-transition: all .3s;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+        }
+
+        .noticias:hover img {
+            -moz-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        .noticias h2 {
+            color: white;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 20px;
+            width: 85%;
+            background-color: #00000091;
+            padding: 10px;
+        }
+
+        @media screen and (max-width: 638px) {
+            .container-noticias {
+                flex-direction: column;
+            }
+
+            .noticias {
+                width: 100%; /* Faça a largura ser responsiva! */
+                margin: 5px;
+                aspect-ratio: 2.5 / 1; /* A proporção desejada (largura / altura) */
+            }
+
+            .noticias img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <main>
+        <nav class="nav-topo">
+            <ul>
+                <li><a href="">Contato</a></li>
+                <li><a href="">Sobre</a></li>
+                <li><a href="">Política de Privacidade</a></li>
+            </ul>
+        </nav>
+
+        <nav class="nav">
+            <div class="nav-content">
+                <a href="#">
+                    <img src="logo2.png" alt="" class="logo">
+                </a>
+
+                <ul>
+                    <li><a href="">Início</a></li>
+                    <li><a href="">Notícias</a></li>
+                    <li><a href="">Vídeos</a></li>
+                    <li><a href="">Sorteios</a></li>
+                </ul>
+
+                <div class="menu-toggle" onclick="toggleMenu()">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="sidebar" id="sidebar">
+            <a href=""><img src="logo2.png" alt="" class="logo"></a>
+            <a href="">Início</a>
+            <a href="">Notícias</a>
+            <a href="">Vídeos</a>
+            <a href="">Sorteios</a>
+            <a href="">Contato</a>
+            <a href="">Sobre</a>
+            <a href="">Política de Privacidade</a>
+        </div>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+
+
+        <h1 class="titulo-noticias">Notícias</h2>
+        <section id="container-1" class="container-noticias">
+            <article class="noticias">
+                <a href="">
+                    <img src="https://www.thewinners.site/imagensNoticias/lou-troll.webp" alt="">
+                    <h2>Novo Brawler</h2>
+                </a>
+            </article>
+
+            <article class="noticias">
+                <a href="">
+                    <img src="https://www.thewinners.site/imagensNoticias/ThumbPharaOllie.jpg" alt="">
+                    <h2>Novas skins</h2>
+                </a>
+            </article>
+
+            <article class="noticias">
+                <a href="">
+                    <img src="https://www.thewinners.site/imagensNoticias/brawlpass.jpg" alt="">
+                    <h2>Novo brawl talk vazado</h2>
+                </a>
+            </article>
+
+            <article class="noticias">
+                <a href="">
+                    <img src="https://www.thewinners.site/imagensNoticias/presents.avif" alt="">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                </a>
+            </article>
+
+            <article class="noticias">
+                <a href="">
+                    <img src="https://www.thewinners.site/imagensNoticias/brawlpass.jpg" alt="">
+                    <h2>abcd</h2>
+                </a>
+            </article>
+
+            <article class="noticias">
+                <a href="">
+                    <img src="https://www.thewinners.site/imagensNoticias/brawlpass.jpg" alt="">
+                    <h2>abcd</h2>
+                </a>
+            </article>
+
+
+        </section>
+
+
+
+
+
+
+
+    </main>
+
+    <script>
+        function toggleMenu() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+
+        sidebar.classList.toggle("open");
+        overlay.classList.toggle("show");
+        }
+    </script>
+
+</body>
+</html>
