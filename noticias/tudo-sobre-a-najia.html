@@ -1,0 +1,195 @@
+<?php 
+// Sistema simples de Contador de Visitas em PHP
+// O arquivo .txt será criado dentro da própria pasta 'noticias'
+$arquivo_contador = 'contador_najia.txt';
+if (!file_exists($arquivo_contador)) {
+    file_put_contents($arquivo_contador, '5000'); 
+}
+$visitas = (int)file_get_contents($arquivo_contador);
+$visitas++;
+file_put_contents($arquivo_contador, $visitas);
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Conheça a Najia, a nova brawler mítica da classe Destruidor do Brawl Stars! Descubra seus ataques, habilidades, poderes de estrela e atributos completos.">
+    <meta name="author" content="The Winner's">
+    <meta name="keywords" content="brawl stars, the winners, najia, supercell, nova brawler, brawler mítica, atualização brawl stars, destruidor">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../icone.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <title>Tudo Sobre a Najia: A Nova Destruidora Venenosa - The Winner's</title>
+    <link rel="canonical" href="https://www.thewinners.site/noticias/tudo-sobre-a-najia" />
+
+    <style>
+        /* Melhorias de Design e Responsividade */
+        body { background-color: #f4f6f9; }
+        .container-noticia { display: flex; flex-wrap: wrap; gap: 40px; padding: 40px 20px; max-width: 1300px; margin: 0 auto; }
+        main { flex: 3; min-width: 65%; }
+        aside { flex: 1; min-width: 320px; }
+        .card-conteudo { background: #fff; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 40px; }
+        
+        /* Abas no meio do texto */
+        .aba-destaque { display: flex; align-items: center; gap: 20px; padding: 20px; border-radius: 12px; margin: 35px 0; color: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.15); transition: transform 0.2s; }
+        .aba-destaque:hover { transform: translateY(-3px); }
+        .aba-destaque img { width: 140px; border-radius: 8px; border: 2px solid rgba(255,255,255,0.5); object-fit: cover; }
+        .aba-conteudo h3 { margin: 0 0 8px 0; font-size: 1.3rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+        .aba-conteudo p { margin: 0 0 12px 0; font-size: 0.95rem; opacity: 0.9; line-height: 1.4; }
+        .aba-conteudo a { display: inline-block; padding: 8px 20px; border-radius: 20px; font-weight: bold; text-decoration: none; font-size: 0.9rem; text-transform: uppercase; }
+
+        /* Ajuste da Tabela para não quebrar */
+        .tabela-responsiva { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 30px; border-radius: 8px; border: 1px solid #ddd; }
+        .tabela-responsiva table { width: 100%; min-width: 700px; border-collapse: collapse; }
+        .tabela-responsiva th, .tabela-responsiva td { white-space: nowrap; padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
+
+        /* Responsividade Mobile Extrema */
+        @media (max-width: 768px) {
+            .container-noticia { padding: 0 !important; gap: 0 !important; }
+            main, aside { min-width: 100% !important; }
+            .card-conteudo { border-radius: 0 !important; border: none !important; box-shadow: none !important; padding: 20px 15px !important; }
+            .aba-destaque { flex-direction: column; text-align: center; }
+            .aba-destaque img { width: 100%; height: auto; max-height: 180px; }
+            aside .card { border-radius: 0; box-shadow: none; border-top: 5px solid #eee; }
+        }
+    </style>
+</head>
+<body>
+    <?php include '../header.php'; ?>
+
+    <div class="container-noticia">
+        <main>
+            <article class="card-conteudo">
+                <span class="badge news" style="background: var(--brawl-blue); color: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem;">Brawler Novo</span>
+                <h1 style="font-size: 2.5rem; color: var(--brawl-dark); margin-top: 15px; margin-bottom: 10px; line-height: 1.2;">Tudo Sobre a Najia: A Nova Destruidora Venenosa do Brawl Stars!</h1>
+                <p style="color: #666; margin-bottom: 25px; font-size: 0.95rem;">Por <strong>The Winner's</strong> | Atualizado em 25 Mar, 2026</p>
+                
+                <img src="https://i.ytimg.com/vi/AQw27lFqNEM/maxresdefault.jpg" alt="Fanart da Nova Brawler Najia do Brawl Stars" style="width: 100%; border-radius: 15px; border: 4px solid var(--brawl-dark); margin-bottom: 30px;">
+                
+                <p style="font-size: 1.1rem; color: #444; margin-bottom: 20px;">Lançada na atualização de fevereiro de 2026, a <strong>Najia</strong> chegou para mudar o meta! Ela é uma Brawler de <strong>raridade Mítica</strong> da classe <strong>Destruidor</strong> e vem para completar o trio do Finx.</p>
+                
+                <p style="font-size: 1.1rem; color: #444; margin-bottom: 30px; line-height: 1.8;">Com um visual egípcio imponente, a lore dela é cheia de atitude: contratada inicialmente para deixar os enigmas das pirâmides ainda mais mortais, ela acabou traindo seu contratante para proteger as vítimas das armadilhas. No campo de batalha, a Najia domina o controle de área com alta mobilidade e um veneno cumulativo que não dá descanso para os adversários.</p>
+
+                <div class="aba-destaque" style="background: linear-gradient(135deg, #1e90ff, #0984e3);">
+                    <img src="../imagensNoticias/imagemPopPenny.jpg" alt="Vídeo Najia">
+                    <div class="aba-conteudo">
+                        <h3>📺 Participe do nosso sorteio da Pop Penny</h3>
+                        <p>Participe já do nosso sorteio e concorra a essa skin incrível!!</p>
+                        <a href="https://youtu.be/cX5KQM-CLyQ?si=R7wEbaJkP2pgLhW0" target="_blank" style="background: #fff; color: #0984e3;">Assistir Agora</a>
+                    </div>
+                </div>
+
+                <h2 style="color: var(--brawl-blue); margin-bottom: 15px;">⚔️ Ataques e Habilidades</h2>
+                
+                <h3 style="color: var(--brawl-dark); margin-bottom: 10px; font-size: 1.3rem;">Ataque Principal: Voo Venenoso</h3>
+                <p style="color: #444; margin-bottom: 20px; line-height: 1.8;">A Najia não brinca em serviço e arremessa um vaso contendo uma cobra letal. O grande truque aqui é que, enquanto o vaso está no ar, você pode direcionar a cobra para qualquer lado! O impacto do vaso perfura os inimigos e causa dano bruto, enquanto a cobra aplica o veneno. E o pior para os adversários: o efeito venenoso se acumula, drenando a vida deles aos poucos.</p>
+                
+                <h3 style="color: var(--brawl-dark); margin-bottom: 10px; font-size: 1.3rem;">Super: Perigo Peçonhento</h3>
+                <p style="color: #444; margin-bottom: 30px; line-height: 1.8;">Ao ativar o Super, ela solta três cobras de papel que rastejam pela arena. Quando atingem um certo alcance, elas explodem em uma nuvem de veneno, atingindo quem estiver por perto. Você também pode mirar e lançar as cobras diretamente em um ponto específico para fechar o cerco.</p>
+
+                <div class="aba-destaque" style="background: linear-gradient(135deg, #f1c40f, #e67e22);">
+                    <img src="../imagensNoticias/brawlpass.jpg" alt="Sorteio Brawl Pass">
+                    <div class="aba-conteudo">
+                        <h3>🎟️ Quer um Brawl Pass Plus?</h3>
+                        <p>Participe do nosso Sorteio Mensal e concorra a um Brawl Pass Plus para desbloquear recursos incríveis!</p>
+                        <a href="../sorteio-brawl-pass.html" style="background: #fff; color: #d35400;">Quero Participar</a>
+                    </div>
+                </div>
+
+                <h2 style="color: var(--brawl-blue); margin-bottom: 15px;">🎒 Acessórios (Desbloqueados no Nível 7)</h2>
+                <ul style="margin-left: 20px; margin-bottom: 30px; color: #444; line-height: 1.8; font-weight: 600;">
+                    <li><strong>Poça Pestilenta:</strong> Inimigos que já estão sob o efeito do veneno da Najia começam a deixar poças tóxicas pelo chão durante 4 segundos. Excelente para dominar o mapa! <em>(Tempo de recarga: 17s)</em></li>
+                    <li><strong>Jarro da Najia:</strong> Um ótimo recurso de sobrevivência. Ela se esconde dentro de um jarro e, ao ser quebrado, empurra todos os inimigos próximos para longe. <em>(Tempo de recarga: 20s)</em></li>
+                </ul>
+
+                <h2 style="color: var(--brawl-blue); margin-bottom: 15px;">⭐ Poderes de Estrela (Desbloqueados no Nível 9)</h2>
+                <ul style="margin-left: 20px; margin-bottom: 30px; color: #444; line-height: 1.8; font-weight: 600;">
+                    <li><strong>Guardiã Ofídica:</strong> Toda vez que a Najia elimina um Brawler, uma cobra surge instantaneamente no local onde ele caiu para continuar atormentando o time rival.</li>
+                    <li><strong>Presas Peçonhentas:</strong> O dano do veneno escala com a saúde do inimigo. Quanto maior a porcentagem de vida do alvo, maior o estrago, podendo aplicar até 200 de dano extra em oponentes com a vida cheia.</li>
+                </ul>
+
+                <h2 style="color: var(--brawl-blue); margin-bottom: 15px;">📊 Status e Atributos da Najia</h2>
+                <p style="color: #444; margin-bottom: 15px; line-height: 1.8;">Ela possui <strong>velocidade de movimento rápida</strong>, um alcance de ataque <strong>muito longo</strong> e uma recarga <strong>muito rápida (0,8s)</strong>. Confira a progressão de vida e dano nos níveis:</p>
+
+                <div class="tabela-responsiva">
+                    <table>
+                        <thead>
+                            <tr style="background-color: var(--brawl-blue); color: white;">
+                                <th>Nível</th>
+                                <th>Pontos de Vida</th>
+                                <th>Dano do Jarro</th>
+                                <th>Dano da Cobra</th>
+                                <th>Vida da Cobra (Super)</th>
+                                <th>Dano Veneno (Super)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background-color: #f9f9f9;">
+                                <td><strong>1</strong></td> <td>3.400</td> <td>400</td> <td>800</td> <td>1.600</td> <td>400</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5</strong></td> <td>4.760</td> <td>560</td> <td>1.120</td> <td>2.240</td> <td>560</td>
+                            </tr>
+                            <tr style="background-color: #f9f9f9;">
+                                <td><strong>9</strong></td> <td>6.120</td> <td>720</td> <td>1.440</td> <td>2.880</td> <td>720</td>
+                            </tr>
+                            <tr>
+                                <td><strong>11</strong></td> <td>6.800</td> <td>800</td> <td>1.600</td> <td>3.200</td> <td>800</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 style="color: var(--brawl-blue); margin-bottom: 15px;">🚀 Lançamento e Como Desbloquear</h2>
+                <p style="color: #444; margin-bottom: 30px; line-height: 1.8;">A Najia chegou ao jogo em acesso antecipado no dia <strong>20 de março de 2026</strong>. Para garantir a sua na conta, ela pode ser desbloqueada na <strong>Trilha Estelar por 1.900 Vales</strong> ou comprada diretamente na loja por <strong>349 Gemas</strong>.</p>
+
+                <p style="color: #444; font-size: 1.2rem; font-weight: bold; background: #f1f2f6; padding: 15px; border-left: 5px solid var(--brawl-blue); border-radius: 5px; margin-bottom: 50px;">🐍 Título de Domínio da Brawler: <span style="color: var(--brawl-blue);">Peçonha</span></p>
+
+                <hr style="border: 0; border-top: 2px solid #eee; margin-bottom: 30px;">
+                <h3 style="color: var(--brawl-dark); margin-bottom: 20px;">💬 Deixe sua opinião</h3>
+                <div id="disqus_thread"></div>
+            </article>
+        </main>
+
+        <aside>
+            <div class="card" style="padding: 20px; background: #fff; border-radius: 15px; position: sticky; top: 20px;">
+                
+                <div style="background: linear-gradient(90deg, #ff7675 0%, #d63031 100%); color: white; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 25px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    🔥 Em alta! +<?php echo number_format($visitas, 0, ',', '.'); ?> Brawlers já leram
+                </div>
+
+                <h3 style="color: var(--brawl-blue); margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px;">Compartilhe</h3>
+                <div style="display: flex; gap: 10px; margin-bottom: 25px;">
+                    <a href="https://api.whatsapp.com/send?text=Confira%20tudo%20sobre%20a%20nova%20Brawler%20Najia!%20https://www.thewinners.site/noticias/tudo-sobre-a-najia" target="_blank" style="flex: 1; background-color: #25D366; color: white; padding: 10px 5px; font-size: 14px; text-align: center; border-radius: 5px; text-decoration: none; font-weight: bold;">WhatsApp</a>
+                    <a href="https://twitter.com/intent/tweet?url=https://www.thewinners.site/noticias/tudo-sobre-a-najia&text=Tudo%20sobre%20a%20Najia!" target="_blank" style="flex: 1; background-color: #1DA1F2; color: white; padding: 10px 5px; font-size: 14px; text-align: center; border-radius: 5px; text-decoration: none; font-weight: bold;">Twitter</a>
+                </div>
+
+                <h3 style="color: var(--brawl-blue); margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px;">Leia Também</h3>
+                
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
+                    <li>
+                        <a href="../novo-brawler-shade.html" style="display: flex; align-items: center; gap: 12px; color: #333; text-decoration: none; padding: 8px; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f0f2f5'" onmouseout="this.style.background='transparent'">
+                            <img src="../imagensNoticias/lancamentoShade.jpg" alt="Brawler Shade" style="width: 70px; height: 50px; object-fit: cover; border-radius: 5px;">
+                            <span style="font-weight: 600; font-size: 0.9rem; line-height: 1.3;">Tudo sobre o Novo Brawler Shade</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../nova-temporada-starrToon2.0.html" style="display: flex; align-items: center; gap: 12px; color: #333; text-decoration: none; padding: 8px; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f0f2f5'" onmouseout="this.style.background='transparent'">
+                            <img src="../imagensNoticias/telaCarregamentoStarrToon2.0.png" alt="Starr Toon" style="width: 70px; height: 50px; object-fit: cover; border-radius: 5px;">
+                            <span style="font-weight: 600; font-size: 0.9rem; line-height: 1.3;">Nova Temporada: Starr Toon 2.0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../presentesGratis.html" style="display: flex; align-items: center; gap: 12px; color: #333; text-decoration: none; padding: 8px; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f0f2f5'" onmouseout="this.style.background='transparent'">
+                            <img src="../imagensNoticias/presents.avif" alt="Presentes Grátis" style="width: 70px; height: 50px; object-fit: cover; border-radius: 5px;">
+                            <span style="font-weight: 600; font-size: 0.9rem; line-height: 1.3;">Resgate Presentes e Recompensas</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <?php include '../footer.php'; ?>
+</body>
+</html>
