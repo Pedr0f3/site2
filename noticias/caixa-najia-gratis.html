@@ -1,13 +1,3 @@
-<?php 
-// Sistema de Contador de Visitas
-$arquivo_contador = 'contador_caixa_najia.txt';
-if (!file_exists($arquivo_contador)) {
-    file_put_contents($arquivo_contador, '0'); 
-}
-$visitas = (int)file_get_contents($arquivo_contador);
-$visitas++;
-file_put_contents($arquivo_contador, $visitas);
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,6 +8,7 @@ file_put_contents($arquivo_contador, $visitas);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../icone.ico" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
+    <script src="../components.js" defer></script>
     <title>Ganhe uma Caixa da Najia de Graça no Brawl Stars! - The Winner's</title>
     <link rel="canonical" href="https://www.thewinners.site/noticias/caixa-najia-gratis" />
 
@@ -69,7 +60,7 @@ file_put_contents($arquivo_contador, $visitas);
     </style>
 </head>
 <body>
-    <?php include '../header.php'; ?>
+    <main-header></main-header>
 
     <div class="container-noticia">
         <main>
@@ -121,7 +112,7 @@ file_put_contents($arquivo_contador, $visitas);
             <div class="card" style="padding: 20px; background: #fff; border-radius: 15px; position: sticky; top: 20px;">
                 
                 <div style="background: linear-gradient(90deg, #ff7675 0%, #d63031 100%); color: white; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 25px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    🔥 Em alta! +<?php echo number_format($visitas, 0, ',', '.'); ?> Brawlers já leram
+                    🔥 Em alta! +<span id="contador-visitas">150</span> Brawlers já leram
                 </div>
 
                 <h3 style="color: var(--brawl-blue); margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px;">Compartilhe</h3>
@@ -156,6 +147,21 @@ file_put_contents($arquivo_contador, $visitas);
         </aside>
     </div>
 
-    <?php include '../footer.php'; ?>
+    <main-footer></main-footer>
+
+    <script>
+        // Contador de visitas estático simulado
+        let baseVisitas = 150;
+        let visitasSalvas = localStorage.getItem('visitas_caixa');
+        
+        if (!visitasSalvas) {
+            visitasSalvas = baseVisitas + Math.floor(Math.random() * 20) + 1;
+        } else {
+            visitasSalvas = parseInt(visitasSalvas) + 1;
+        }
+        
+        localStorage.setItem('visitas_caixa', visitasSalvas);
+        document.getElementById('contador-visitas').innerText = visitasSalvas.toLocaleString('pt-BR');
+    </script>
 </body>
 </html>
