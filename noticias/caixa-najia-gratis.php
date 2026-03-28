@@ -134,19 +134,19 @@ file_put_contents($arquivo_contador, $visitas);
                 
                 <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 15px;">
                     <li>
-                        <a href="tudo-sobre-a-najia.php" style="display: flex; align-items: center; gap: 12px; color: #333; text-decoration: none; padding: 8px; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f0f2f5'" onmouseout="this.style.background='transparent'">
+                        <a href="tudo-sobre-a-najia.html" style="display: flex; align-items: center; gap: 12px; color: #333; text-decoration: none; padding: 8px; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f0f2f5'" onmouseout="this.style.background='transparent'">
                             <img src="https://i.ytimg.com/vi/AQw27lFqNEM/maxresdefault.jpg" alt="Brawler Najia" style="width: 70px; height: 50px; object-fit: cover; border-radius: 5px;">
                             <span style="font-weight: 600; font-size: 0.9rem; line-height: 1.3;">Tudo Sobre a Nova Brawler Najia</span>
                         </a>
                     </li>
                     <li>
-                        <a href="novo-brawler-shade.php" style="display: flex; align-items: center; gap: 12px; color: #333; text-decoration: none; padding: 8px; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f0f2f5'" onmouseout="this.style.background='transparent'">
+                        <a href="novo-brawler-shade.html" style="display: flex; align-items: center; gap: 12px; color: #333; text-decoration: none; padding: 8px; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f0f2f5'" onmouseout="this.style.background='transparent'">
                             <img src="../imagensNoticias/lancamentoShade.jpg" alt="Brawler Shade" style="width: 70px; height: 50px; object-fit: cover; border-radius: 5px;">
                             <span style="font-weight: 600; font-size: 0.9rem; line-height: 1.3;">Tudo sobre o Novo Brawler Shade</span>
                         </a>
                     </li>
                     <li>
-                        <a href="presentesGratis.php" style="display: flex; align-items: center; gap: 12px; color: #333; text-decoration: none; padding: 8px; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f0f2f5'" onmouseout="this.style.background='transparent'">
+                        <a href="presentesGratis.html" style="display: flex; align-items: center; gap: 12px; color: #333; text-decoration: none; padding: 8px; border-radius: 8px; transition: background 0.2s;" onmouseover="this.style.background='#f0f2f5'" onmouseout="this.style.background='transparent'">
                             <img src="../imagensNoticias/presents.avif" alt="Presentes Grátis" style="width: 70px; height: 50px; object-fit: cover; border-radius: 5px;">
                             <span style="font-weight: 600; font-size: 0.9rem; line-height: 1.3;">Resgate Presentes e Recompensas</span>
                         </a>
